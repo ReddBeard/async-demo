@@ -1,6 +1,14 @@
 async function fetchData() {
-    const response = await fetch('https://api.github.com/users/octocat');
-    const data = await response.json();
-    console.log(data.name);
+    try {
+        console.log("Fetching data...");
+        const response = await fetch('https://api.github.com/users/ReddBeard');
+        if (!response.ok) throw new Error('Network response failed');
+        const data = await response.json();
+        console.log("GitHub user name:", data.name);
+    } catch (error) {
+        console.error("Error fetching data:", error.message);
+    }
 }
+
+// Call the function
 fetchData();

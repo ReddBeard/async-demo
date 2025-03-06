@@ -5,6 +5,7 @@ async function fetchData() {
         if (!response.ok) throw new Error('Network response failed');
         const data = await response.json();
         console.log("GitHub user name:", data.name);
+        console.log("User bio:", data.bio);
     } catch (error) {
         console.error("Error fetching data:", error.message);
     }
